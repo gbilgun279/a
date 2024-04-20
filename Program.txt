@@ -1,0 +1,5 @@
+TextWindow.WriteLine("garigiin neriig oruuln uu")
+for i = 10 to 0 step -2 
+week[i]=TextWindow.read()
+EndFor
+TextWindow.WriteLine(week)
