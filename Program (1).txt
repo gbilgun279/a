@@ -1,0 +1,30 @@
+GraphicsWindow.title = "london clock"
+GraphicsWindow.BackgroundColor = "black"
+GraphicsWindow.BrushColor = "green"
+GraphicsWindow.FontName = "courier new"
+Timer.Interval = 1000
+Timer.Tick = OnTick
+sub OnTick
+    GraphicsWindow.Clear()
+    GraphicsWindow.FontSize = 50
+    mongolianHour = Clock.Hour+1
+    If mongolianHour > 24 Then
+        mongolianHour = mongolianHour - 24
+    EndIf
+     If Clock.Minute > 9 then 
+        if clock.second > 9 then
+            GraphicsWindow.DrawText(0, 0, mongolianHour + ":" + Clock.minute + ":" + Clock.second)
+        else
+            GraphicsWindow.DrawText(0, 0, mongolianHour + ":" + Clock.Minute + ":0" + clock.Second)
+            EndIf
+    Else
+            if clock.second > 9 then 
+                GraphicsWindow.DrawText(0, 0, mongolianHour + ":0" + Clock.minute + ":" + clock.second)
+            else
+                GraphicsWindow.DrawText(0, 0, mongolianHour + ":0" + Clock.minute + ":0" + Clock.Second)
+            EndIf
+        EndIf
+        GraphicsWindow.FontSize = 40
+        GraphicsWindow.DrawText(0, 50, clock.weekday + " " + Clock.Date)
+    EndSub
+
